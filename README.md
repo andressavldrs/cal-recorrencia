@@ -34,7 +34,30 @@ O objetivo é medir o tempo total gasto para executar a recursão até a condiç
    gcc -Wall calcula_recorrencia.c -o calcula_recorrencia   
    ./calcula_recorrencia a b c d e f g n
    ```
-   
+  ##### Testes
+  
+Foi executado cada um dos casos da tabela abaixo, para f(n) = [1, n, n², n³] e 
+
+n = [50, 100, 200, 400, 800, 1000, 2000, 4000, 8000, 16000, 32000, 64000, 128000]
 
   
-      
+| Valor A | Valor B | Valor C | Valor D | Valor E | Valor F |
+|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|
+|    1    |    2    |    0    |    0    |    1    |    0    |
+|    2    |    2    |    0    |    0    |    1    |    0    |
+|    4    |    2    |    0    |    0    |    1    |    0    |
+|    8    |    2    |    0    |    0    |    1    |    0    |
+|    16   |    4    |    0    |    0    |    1    |    0    |
+|    2    |    1    |    1    |    0    |    1    |    0    |
+|    1    |    1    |    1    |    0    |    1    |    0    |      
+|    1    |    1    |    1    |    1    |    1    |    2    |
+|    1    |    4    |    0    |    1    |    2    |    0    |
+|    8    |    4    |    0    |    8    |    2    |    0    |
+
+
+Para executar todos os testes:
+ ``` 
+   gcc -Wall calcula_recorrencia.c -o c
+   ./run.sh c
+   ```
+O resultado será um conjuuto de arquivos com os tempos de cada um dos casos para cada f(n).
