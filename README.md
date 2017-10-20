@@ -60,4 +60,4 @@ Para executar todos os testes:
    gcc -Wall calcula_recorrencia.c -o c
    ./run.sh c
    ```
-O resultado será um conjuuto de arquivos com os tempos de cada um dos casos para cada f(n).
+O resultado será um conjunto de arquivos com os tempos para cada f(n) de cada um dos casos.
