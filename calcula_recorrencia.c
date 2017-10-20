@@ -14,7 +14,6 @@
 #include <time.h>
 #include <math.h>
 #include <stdlib.h>
-
 int a, b, c, d, e, f, g, n; // variaveis da funcao de recorrencia
 
 
@@ -22,12 +21,8 @@ int a, b, c, d, e, f, g, n; // variaveis da funcao de recorrencia
 int func_t(int n);
 /*	Conta o numero de iteracoes de f(n)	*/
 int func_f(int n, int g);
-
 /* Resolve o metodo mestre */
 int metodo_mestre(int n);
-/*	*/
-/*	*/
-/*	*/
 
 int main(int argc,char *argv[]){
 
@@ -35,8 +30,9 @@ int main(int argc,char *argv[]){
 			a = atoi(argv[1]), b = atoi(argv[2]), c = atoi(argv[3]), 
 			d = atoi(argv[4]), e = atoi(argv[5]), f = atoi(argv[6]),
 			g = atoi(argv[7]), n = atoi(argv[8]);
-			printf("a:%d, b:%d, c:%d, d:%d, e:%d, f:%d, g:%d, n:%d\n", 
-				a, b, c, d, e, f, g, n);
+			/*printf("a:%d, b:%d, c:%d, d:%d, e:%d, f:%d, g:%d, n:%d\n", 
+				a, b, c, d, e, f, g, n);*/
+
 		// Verifica se os argumentos sao validos	
 		if(	(a < 0) || (b < 0) || (c < 0) || (d < 0) || 
 			(e < 0) || (f < 0) || (g < 0) || (n < 0)){
@@ -60,22 +56,23 @@ int main(int argc,char *argv[]){
 }
 
 /*	Simula a recorrencia	
-	T(n) = aT((n/b) – c) + dT((n/e) – f) + f(n)
-
-
-*/
+	T(n) = aT((n/b) – c) + dT((n/e) – f) + f(n) */
 int func_t(int n){
-	int cont1, cont2;
+	int cont, timer;
 
 	if (n<=1) return 0;
 	n--;
 	// faz a chamadas de (n/b-c)
-	for(cont1=1; cont1<=a; cont1++)
+	for(cont=1; cont<=a; cont++)
 		func_t((n/b-c));
 
 	// faz d chamadas de (n/e-f)
-	for(cont2=1; cont2<=a; cont2++)
+	for(cont=1; cont<=a; cont++)
 		func_t((n/e-f));
+
+	//tempo para o combinar
+	for(cont=1; cont<=func_f(n,g); cont++) 
+		timer++;
 
 	return 0;
 

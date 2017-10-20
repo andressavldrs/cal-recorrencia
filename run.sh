@@ -5,7 +5,8 @@ n=(50 100 200 400 800 1000 2000 4000 8000 16000 32000 64000 128000)
 out=$1
 
 function exec {
-for j in ${n[@]}; 
+	echo "f(n^${7})" >> $8
+	for j in ${n[@]}; 
 	do 
 		duration=0
 		for x in {1..10}
@@ -19,7 +20,7 @@ for j in ${n[@]};
 			#echo $((runtime/1000000))
 		done
 		# Tempo medio de execucao
-		echo "TME: $((duration/10)) ms"
+		echo "$((duration/10))" >> $8
 
 	done
 }
@@ -27,14 +28,14 @@ for j in ${n[@]};
 
 for g in {0..3};
 	do 
-		exec 1  2 0 0 1 0 $g
-		exec 2  2 0 0 1 0 $g
-		exec 4  2 0 0 1 0 $g
-		exec 8  2 0 0 1 0 $g
-		exec 16 4 0 0 1 0 $g
-		exec 2  1 1 0 1 0 $g
-		exec 1  1 1 0 1 0 $g
-		exec 1  1 1 0 1 2 $g
-		exec 1  4 0 1 2 0 $g
-		exec 8  4 0 8 2 0 $g
+		exec 1  2 0 0 1 0 $g "caso1.txt"
+		exec 2  2 0 0 1 0 $g "caso2.txt" 
+		exec 4  2 0 0 1 0 $g "caso3.txt"
+		exec 8  2 0 0 1 0 $g "caso4.txt"
+		exec 16 4 0 0 1 0 $g "caso5.txt"
+		exec 2  1 1 0 1 0 $g "caso6.txt"
+		exec 1  1 1 0 1 0 $g "caso7.txt"
+		exec 1  1 1 0 1 2 $g "caso8.txt"
+		exec 1  4 0 1 2 0 $g "caso9.txt"
+		exec 8  4 0 8 2 0 $g "caso10.txt"
 	done
